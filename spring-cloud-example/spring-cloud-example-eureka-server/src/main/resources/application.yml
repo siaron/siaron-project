@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: spring-cloud-example-eureka-server
+
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+management:
+  health:
+    rabbit:
+      enabled: false
+    redis:
+      enabled: false
+    db:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+info:
+  app:
+    name: ${spring.application.name}
+
+logging:
+  level:
+    root: info
+    com.netflix.discovery.shared.resolver.aws: warn
+    com.netflix.eureka.registry.AbstractInstanceRegistry: warn

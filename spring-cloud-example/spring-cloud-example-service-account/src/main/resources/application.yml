@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: spring-cloud-example-service-account
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      url: jdbc:postgresql://127.0.0.1:5432/siaron_project
+      username: siaron_project_admin
+      password: siaron_project_admin_pass
+      driver-class-name: org.postgresql.Driver
+      db-type: postgresql
+      stat-view-servlet:
+        login-username: admin
+        login-password: admin
+      filter:
+        stat:
+          db-type: postgresql
+      web-stat-filter:
+        url-pattern:
+
+server:
+  port: 8763
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+
+logging:
+  level:
+    root: info
+
+mybatis-plus:
+  global-config:
+    db-config:
+      db-type: postgre_sql
+  configuration:
+    map-underscore-to-camel-case: true

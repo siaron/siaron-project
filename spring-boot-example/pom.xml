@@ -11,6 +11,8 @@
     <modules>
         <module>spring-boot-example-kafka</module>
         <module>spring-boot-example-executable</module>
+        <module>spring-boot-example-jpa</module>
+        <module>spring-boot-example-redis</module>
     </modules>
 
     <modelVersion>4.0.0</modelVersion>
@@ -28,6 +30,20 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+    </dependencies>
 
     <build>
         <plugins>

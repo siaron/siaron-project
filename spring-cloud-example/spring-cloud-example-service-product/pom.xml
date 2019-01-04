@@ -2,17 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>spring-cloud-example</artifactId>
+        <groupId>siaron-project</groupId>
+        <version>1.0.0</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>siaron-project</groupId>
-    <artifactId>project-parent</artifactId>
-    <version>1.0.0</version>
-    <packaging>pom</packaging>
+    <artifactId>spring-cloud-example-service-product</artifactId>
 
-    <modules>
-        <module>spring-boot-example</module>
-        <module>spring-cloud-example</module>
-        <module>spring-example</module>
-    </modules>
 
 </project>
