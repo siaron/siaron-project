@@ -91,7 +91,5 @@ captures/
 
 # Keystore files
 *.jks
-!nvr-module-auth/src/main/resources/nvrcloudJwt.jks
 
 log.txt
-!/nvr-gather-storage/src/main/java/com/nvr/gather/service/support/impl/MineRealMonitorService.java

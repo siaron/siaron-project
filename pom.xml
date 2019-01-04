@@ -15,4 +15,8 @@
         <module>spring-example</module>
     </modules>
 
+    <properties>
+        <skipTests>true</skipTests>
+    </properties>
+
 </project>
