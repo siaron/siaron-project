@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: spring-boot-example-executable
+  output:
+    ansi:
+      enabled: always
+  shell:
+    interactive:
+      enabled: true
