@@ -17,6 +17,7 @@
         <module>spring-cloud-example-service-product</module>
         <module>spring-cloud-example-service-order</module>
         <module>spring-cloud-example-service-msg</module>
+        <module>spring-cloud-example-config</module>
     </modules>
 
     <artifactId>spring-cloud-example</artifactId>
