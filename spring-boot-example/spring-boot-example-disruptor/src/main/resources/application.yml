@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: spring-boot-example-disruptor
+  disruptor:
+    enabled: true
+    ring-buffer: false
+    ring-buffer-size: 1024
+    ring-thread-numbers: 4
+    multi-producer: true
+    handlerDefinitions:
+    - order: 1
+      definitions: /Event-Output/TagA-Output/** = emailHandler
+       # /Event-Output/TagB-Output/** = smsHandler
+#    - order: 2
+#      definitions: /Event-DC-Output/TagA-Output/** = emailHandler
+#        /Event-DC-Output/TagB-Output/** = smsHandler
