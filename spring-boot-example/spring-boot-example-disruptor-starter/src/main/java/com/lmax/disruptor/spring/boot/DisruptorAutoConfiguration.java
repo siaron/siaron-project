@@ -262,17 +262,14 @@ public class DisruptorAutoConfiguration implements ApplicationContextAware {
             Collections.sort(disruptorEventHandlers, new OrderComparator());
 
             // 使用disruptor创建消费者组
-            EventHandlerGroup<DisruptorEvent> handlerGroup = null;
             for (int i = 0; i < disruptorEventHandlers.size(); i++) {
                 // 连接消费事件方法，其中EventHandler的是为消费者消费消息的实现类
                 DisruptorEventDispatcher eventHandler = disruptorEventHandlers.get(i);
-                if (i < 1) {
-                    //多个消费者并行执行,消费者数量
-                    handlerGroup = disruptor.handleEventsWithWorkerPool(new DisruptorEventDispatcher[]{eventHandler, eventHandler});
-                } else {
-                    // 完成前置事件处理之后执行后置事件处理
-                    handlerGroup.thenHandleEventsWithWorkerPool(new DisruptorEventDispatcher[]{eventHandler, eventHandler});
+                DisruptorEventDispatcher[] ds = new DisruptorEventDispatcher[properties.getConsumerNumber()];
+                for (int i1 = 0; i1 < properties.getConsumerNumber(); i1++) {
+                    ds[i1] = eventHandler;
                 }
+                disruptor.handleEventsWithWorkerPool(ds);
             }
         }
 
