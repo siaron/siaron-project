@@ -3,7 +3,7 @@
 - Spring Boot  2.1.1
 - Spring Cloud Finchley.SR2
 
-# siaron-project
+# com.siaron-project
  - other-example   
  - spring-boot-example   
  - spring-cloud-example

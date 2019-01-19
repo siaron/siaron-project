@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>project-parent</artifactId>
-        <groupId>siaron-project</groupId>
+        <groupId>com.siaron-project</groupId>
         <version>1.0.0</version>
     </parent>
     <packaging>pom</packaging>
@@ -17,6 +17,8 @@
         <module>spring-boot-example-rabbitmq</module>
         <module>spring-boot-example-disruptor</module>
         <module>spring-boot-example-disruptor-starter</module>
+        <module>spring-boot-example-web-version</module>
+        <module>spring-boot-example-zk</module>
     </modules>
 
     <modelVersion>4.0.0</modelVersion>
