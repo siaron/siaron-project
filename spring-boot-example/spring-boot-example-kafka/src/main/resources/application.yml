@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: spring-boot-example-mybatis
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource

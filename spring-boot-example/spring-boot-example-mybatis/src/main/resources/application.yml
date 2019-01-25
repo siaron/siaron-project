@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: spring-boot-example-mybatis
+  datasource:
+    dynamic:
+      p6spy: true
+      primary: example_mybatis_01
+      datasource: #使用多schema模拟多库
+        example_mybatis_01:
+          url: jdbc:postgresql://127.0.0.1:5432/siaron_project?currentSchema=public,example_mybatis_01
+          username: siaron_project_admin
+          password: siaron_project_admin_pass
+          driver-class-name: org.postgresql.Driver
+        example_mybatis_02:
+          url: jdbc:postgresql://127.0.0.1:5432/siaron_project?currentSchema=public,example_mybatis_02
+          username: siaron_project_admin
+          password: siaron_project_admin_pass
+          driver-class-name: org.postgresql.Driver
+
+server:
+  port: 9001
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
