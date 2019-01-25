@@ -22,7 +22,7 @@
         <module>spring-cloud-saas-common-core</module>
         <module>spring-cloud-saas-common-disruptor</module>
         <module>spring-cloud-saas-job</module>
-        <module>spring-cloud-saas-service-user</module>
+        <module>spring-cloud-saas-service-account</module>
         <module>spring-cloud-saas-service-auth</module>
     </modules>
 
