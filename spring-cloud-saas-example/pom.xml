@@ -21,6 +21,7 @@
         <module>spring-cloud-saas-common-base</module>
         <module>spring-cloud-saas-common-core</module>
         <module>spring-cloud-saas-common-disruptor</module>
+        <module>spring-cloud-saas-job</module>
     </modules>
 
     <properties>
