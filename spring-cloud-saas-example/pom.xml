@@ -24,6 +24,7 @@
         <module>spring-cloud-saas-job</module>
         <module>spring-cloud-saas-service-account</module>
         <module>spring-cloud-saas-service-auth</module>
+        <module>spring-cloud-saas-service-tenant</module>
     </modules>
 
     <properties>
