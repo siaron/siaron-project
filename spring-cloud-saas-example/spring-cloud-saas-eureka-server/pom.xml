@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-cloud-sass-eureka-server</artifactId>
+    <artifactId>spring-cloud-saas-eureka-server</artifactId>
 
     <dependencies>
         <dependency>

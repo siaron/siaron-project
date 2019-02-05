@@ -13,7 +13,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>spring-cloud-sass-eureka-server</module>
+        <module>spring-cloud-saas-eureka-server</module>
         <module>spring-cloud-saas-config</module>
         <module>spring-cloud-saas-config-apollo</module>
         <module>spring-cloud-saas-gateway</module>
@@ -22,12 +22,13 @@
         <module>spring-cloud-saas-common-core</module>
         <module>spring-cloud-saas-common-rbac</module>
         <module>spring-cloud-saas-common-disruptor</module>
-        <module>spring-cloud-saas-job</module>
-        <module>spring-cloud-saas-service-account</module>
-        <module>spring-cloud-saas-service-auth</module>
-        <module>spring-cloud-saas-service-tenant</module>
-        <module>spring-cloud-sass-platform-rental</module>
-        <module>spring-cloud-sass-platform-iot</module>
+        <module>spring-cloud-saas-xxl-job</module>
+        <module>spring-cloud-saas-management-tenant</module>
+        <module>spring-cloud-saas-user-center</module>
+        <module>spring-cloud-saas-platform-iot</module>
+        <module>spring-cloud-saas-platform-fleet</module>
+        <module>spring-cloud-saas-platform-rental</module>
+        <module>spring-cloud-saas-fegin-api</module>
     </modules>
 
     <properties>
