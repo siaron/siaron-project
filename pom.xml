@@ -15,6 +15,7 @@
         <module>spring-cloud-example</module>
         <module>spring-example</module>
         <module>spring-cloud-saas-example</module>
+        <module>spring-cloud-alibaba-example</module>
     </modules>
 
     <properties>
