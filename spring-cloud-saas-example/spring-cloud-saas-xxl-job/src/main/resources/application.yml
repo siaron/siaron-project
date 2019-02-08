@@ -1,0 +1,80 @@
+spring:
+  application:
+    name: spring-cloud-saas-xxl-job
+  mvc:
+    static-path-pattern: /static/**
+  resources:
+    static-locations: classpath:/static/
+  freemarker:
+    settings:
+      number_format: 0.##########
+    template-loader-path: classpath:/templates/
+    suffix: .ftl
+    charset: utf-8
+    request-context-attribute: request
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: org.postgresql.Driver
+      url: jdbc:postgresql://127.0.0.1:5432/spring_cloud_saas_xxl_job
+      username: iotcloud
+      password: iotcloud_admin
+      max-wait: 10000
+      max-active: 30
+      test-on-borrow: true
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password: redis
+    lettuce:
+      pool:
+        max-active: 8
+
+mybatis:
+  mapper-locations: classpath:/mybatis-mapper/**/*Mapper.xml
+  configuration:
+    database-id: postgresql
+    map-underscore-to-camel-case: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      cors:
+        allowed-origins: "*"
+        allowed-methods: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+server:
+  port: 18037
+  servlet:
+    context-path: /xxl-job-admin
+
+xxl:
+  job:
+    #admin
+    mail:
+      host: smtp.exmail.qq.com
+      port: 25
+      ssl: false
+      username:
+      password:
+      sendNick: cloud_saas任务调度中心
+    login:
+      username: admin
+      password: admin@cloud-job
+    accessToken:
+    i18n:
+    # executor
+    admin:
+      addresses: http://127.0.0.1:${server.port}/xxl-job-admin
+    executor:
+      appname: ${spring.application.name}
+      ip:
+      port: 9999 #执行器的端口,调度中心通过RPC 请求执行定时任务,部署多个执行器调度中心会有调度策略来执行
+      logpath: /opt/spring-cloud-saas-logger/job_logger/
+      logretentiondays: 1

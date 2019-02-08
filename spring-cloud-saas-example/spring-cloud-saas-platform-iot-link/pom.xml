@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-cloud-saas-platform-iot</artifactId>
+    <artifactId>spring-cloud-saas-iot-link</artifactId>
 
 
 </project>

@@ -2,14 +2,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>project-parent</artifactId>
         <groupId>com.siaron-project</groupId>
         <version>1.0.0</version>
+        <relativePath/>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
-
     <artifactId>spring-cloud-saas-example</artifactId>
+    <name>spring-cloud-saas-dependencies</name>
+    <description>spring Cloud Saas Dependencies</description>
     <packaging>pom</packaging>
 
     <modules>
@@ -23,12 +25,17 @@
         <module>spring-cloud-saas-common-rbac</module>
         <module>spring-cloud-saas-common-disruptor</module>
         <module>spring-cloud-saas-xxl-job</module>
+        <module>spring-cloud-saas-fegin-api</module>
+        <module>spring-cloud-saas-management-platform</module>
         <module>spring-cloud-saas-management-tenant</module>
         <module>spring-cloud-saas-user-center</module>
-        <module>spring-cloud-saas-platform-iot</module>
         <module>spring-cloud-saas-platform-fleet</module>
         <module>spring-cloud-saas-platform-rental</module>
-        <module>spring-cloud-saas-fegin-api</module>
+        <module>spring-cloud-saas-platform-iot-app</module>
+        <module>spring-cloud-saas-platform-iot-oms</module>
+        <module>spring-cloud-saas-platform-iot-link</module>
+        <module>spring-cloud-saas-platform-iot-develop</module>
+        <module>spring-cloud-saas-platform-iot-data</module>
     </modules>
 
     <properties>
@@ -56,18 +63,17 @@
 
     <dependencies>
         <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
@@ -75,7 +81,6 @@
             <version>27.0.1-jre</version>
         </dependency>
     </dependencies>
-
 
     <build>
         <plugins>
