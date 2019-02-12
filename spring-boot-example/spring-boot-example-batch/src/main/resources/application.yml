@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: spring-boot-example-log4j2
+  batch:
+    initialize-schema: always
+    job:
+      enabled: false
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/siaron_project?currentSchema=batch
+    username: siaron_project_admin
+    password: siaron_project_admin_pass
+    driver-class-name: org.postgresql.Driver

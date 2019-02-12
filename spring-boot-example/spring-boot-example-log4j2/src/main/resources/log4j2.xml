@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appenders>
+        <!-- 控制台输出 -->
+        <console name="ConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{%-5level} [%t] %highlight{%c{1.}.%M(%L)}: %msg%n"/>
+        </console>
+
+        <!-- fileName：输出路径  filePattern：命名规则 -->
+        <RollingFile name="FileAppender" fileName="logs/allOut.log"
+                     filePattern="logs/$${date:yyyy-MM-dd}/allOut-%d{yyyy-MM-dd}-%i.log">
+            <Filters>
+                <ThresholdFilter level="all" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <!-- 输出格式 -->
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %5p ${hostName} --- [%15.15t] %-40.40c{1.} : %m%n%ex"/>
+            <Policies>
+                <!-- SizeBasedTriggeringPolicy单个文件的大小限制 -->
+                <SizeBasedTriggeringPolicy size="2 MB"/>
+            </Policies>
+            <!-- DefaultRolloverStrategy同一个文件下的最大文件数 -->
+            <DefaultRolloverStrategy max="50"/>
+        </RollingFile>
+    </appenders>
+
+    <loggers>
+        <AsyncLogger name="com.siaron.log4j2.Log4j2App" level="info" additivity="false">
+            <AppenderRef ref="ConsoleAppender"/>
+            <AppenderRef ref="FileAppender"/>
+        </AsyncLogger>
+
+        <root level="info">
+            <appender-ref ref="ConsoleAppender"/>
+            <appender-ref ref="FileAppender"/>
+        </root>
+    </loggers>
+</configuration>

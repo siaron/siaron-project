@@ -1,0 +1,3 @@
+spring:
+  application:
+    name: spring-boot-example-log4j2

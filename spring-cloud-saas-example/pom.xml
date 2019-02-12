@@ -26,16 +26,15 @@
         <module>spring-cloud-saas-common-disruptor</module>
         <module>spring-cloud-saas-xxl-job</module>
         <module>spring-cloud-saas-fegin-api</module>
-        <module>spring-cloud-saas-management-platform</module>
         <module>spring-cloud-saas-management-tenant</module>
         <module>spring-cloud-saas-user-center</module>
-        <module>spring-cloud-saas-platform-fleet</module>
-        <module>spring-cloud-saas-platform-rental</module>
-        <module>spring-cloud-saas-platform-iot-app</module>
-        <module>spring-cloud-saas-platform-iot-oms</module>
-        <module>spring-cloud-saas-platform-iot-link</module>
-        <module>spring-cloud-saas-platform-iot-develop</module>
-        <module>spring-cloud-saas-platform-iot-data</module>
+        <module>spring-cloud-saas-product-fleet</module>
+        <module>spring-cloud-saas-product-rental</module>
+        <module>spring-cloud-saas-product-iot-app</module>
+        <module>spring-cloud-saas-product-iot-oms</module>
+        <module>spring-cloud-saas-product-iot-link</module>
+        <module>spring-cloud-saas-product-iot-develop</module>
+        <module>spring-cloud-saas-product-iot-data</module>
     </modules>
 
     <properties>

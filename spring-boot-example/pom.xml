@@ -20,6 +20,8 @@
         <module>spring-boot-example-web-version</module>
         <module>spring-boot-example-zk</module>
         <module>spring-boot-example-mybatis</module>
+        <module>spring-boot-example-log4j2</module>
+        <module>spring-boot-example-batch</module>
     </modules>
 
     <modelVersion>4.0.0</modelVersion>
@@ -44,6 +46,7 @@
             <artifactId>spring-boot-test</artifactId>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-logging</artifactId>
