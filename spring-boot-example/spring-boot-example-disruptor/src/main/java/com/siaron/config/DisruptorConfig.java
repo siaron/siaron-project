@@ -34,7 +34,7 @@ public class DisruptorConfig {
     @Scheduled(fixedDelay = 1000) // 每1s执行1次
     public void send() throws Exception {
         LongStream.range(1, 20).forEach(s -> {
-            DisruptorBindEvent event = new DisruptorBindEvent(this, "message " + Math.random());
+            DisruptorBindEvent event = new DisruptorBindEvent("message 111" + Math.random(), "message 2222" + Math.random());
             event.setEvent("Event-Output");
             event.setTag("TagA-Output");
             event.setKey("id-" + s + Math.random());
@@ -42,17 +42,17 @@ public class DisruptorConfig {
         });
     }
 
-//	@Scheduled(fixedDelay = 1000) // 每1s执行1次
-//	public void send2() throws Exception {
-//
-//		DisruptorBindEvent event = new DisruptorBindEvent(this, "message " + Math.random());
-//
-//		event.setEvent("Event-Output");
-//		event.setTag("TagB-Output");
-//		event.setKey("id-" + Math.random());
-//
-//		disruptorTemplate.publishEvent(event);
-//
-//	}
+	@Scheduled(fixedDelay = 1000) // 每1s执行1次
+	public void send2() throws Exception {
+
+		DisruptorBindEvent event = new DisruptorBindEvent(this, "message " + Math.random());
+
+		event.setEvent("Event-Output");
+		event.setTag("TagB-Output");
+		event.setKey("id-" + Math.random());
+
+		disruptorTemplate.publishEvent(event);
+
+	}
 
 }

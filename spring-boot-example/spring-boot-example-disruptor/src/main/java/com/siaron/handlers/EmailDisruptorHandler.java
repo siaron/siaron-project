@@ -27,7 +27,8 @@ public class EmailDisruptorHandler implements DisruptorHandler<DisruptorBindEven
 
     @Override
     public void doHandler(DisruptorBindEvent event, HandlerChain<DisruptorBindEvent> handlerChain) throws Exception {
-        System.out.println(Thread.currentThread().getName() + event.toString());
+        System.out.println(Thread.currentThread().getName() + "aaaa" + event.getBind());
+        System.out.println(Thread.currentThread().getName() + "bbb" + event.getSource());
     }
 
 }

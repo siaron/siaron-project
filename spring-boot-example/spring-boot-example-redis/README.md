@@ -13,7 +13,7 @@ cp /opt/redis-5.3/redis.conf ~/redis/
 protected-mode no
 requirepass redis 
 
-cd ~
+cd /Users/xielongwang/docker-data
 
 启动
 docker run -p 127.0.0.1:6389:6379  --name myRedis -v $PWD/redis/redis.conf:/etc/redis/redis.conf -v $PWD/redis:/data -d redis redis-server /etc/redis/redis.conf --appendonly yes

@@ -177,7 +177,9 @@ public class SpringBatchConfig extends DefaultBatchConfigurer {
 
     @Bean
     @StepScope
-    public MyBatisPagingItemReader itemReader(SqlSessionFactory backupSqlSessionFactory, @Value(value = "#{jobParameters[startDate]}") Date startDate, @Value(value = "#{jobParameters[endDate]}") Date endDate) {
+    public MyBatisPagingItemReader itemReader(SqlSessionFactory backupSqlSessionFactory,
+                                              @Value(value = "#{jobParameters[startDate]}") Date startDate,
+                                              @Value(value = "#{jobParameters[endDate]}") Date endDate) {
         MyBatisPagingItemReader myBatisPagingItemReader = new MyBatisPagingItemReader();
         myBatisPagingItemReader.setQueryId("org.gpscloud.batch.mapper.CustomerMapper.selectDeviceDataPage");
         myBatisPagingItemReader.setSqlSessionFactory(backupSqlSessionFactory);

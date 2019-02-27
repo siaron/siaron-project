@@ -22,6 +22,7 @@
         <module>spring-boot-example-mybatis</module>
         <module>spring-boot-example-log4j2</module>
         <module>spring-boot-example-batch</module>
+        <module>spring-boot-example-daemon</module>
     </modules>
 
     <modelVersion>4.0.0</modelVersion>
