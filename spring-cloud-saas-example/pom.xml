@@ -7,34 +7,14 @@
         <artifactId>project-parent</artifactId>
         <groupId>com.siaron-project</groupId>
         <version>1.0.0</version>
-        <relativePath/>
     </parent>
     <artifactId>spring-cloud-saas-example</artifactId>
-    <name>spring-cloud-saas-dependencies</name>
+    <name>spring-cloud-saas-example</name>
     <description>spring Cloud Saas Dependencies</description>
     <packaging>pom</packaging>
 
     <modules>
-        <module>spring-cloud-saas-eureka-server</module>
-        <module>spring-cloud-saas-config</module>
-        <module>spring-cloud-saas-config-apollo</module>
-        <module>spring-cloud-saas-gateway</module>
-        <module>spring-cloud-saas-monitor</module>
-        <module>spring-cloud-saas-common-base</module>
-        <module>spring-cloud-saas-common-core</module>
-        <module>spring-cloud-saas-common-rbac</module>
-        <module>spring-cloud-saas-common-disruptor</module>
-        <module>spring-cloud-saas-xxl-job</module>
-        <module>spring-cloud-saas-fegin-api</module>
-        <module>spring-cloud-saas-management-tenant</module>
-        <module>spring-cloud-saas-user-center</module>
-        <module>spring-cloud-saas-product-fleet</module>
-        <module>spring-cloud-saas-product-rental</module>
-        <module>spring-cloud-saas-product-iot-app</module>
-        <module>spring-cloud-saas-product-iot-oms</module>
-        <module>spring-cloud-saas-product-iot-link</module>
-        <module>spring-cloud-saas-product-iot-develop</module>
-        <module>spring-cloud-saas-product-iot-data</module>
+        <module>spring-cloud-saas-dependencies</module>
     </modules>
 
     <properties>
