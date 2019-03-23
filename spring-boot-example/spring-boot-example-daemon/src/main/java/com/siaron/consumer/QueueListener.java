@@ -1,4 +1,4 @@
-package com.siaron.daemon;
+package com.siaron.consumer;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Message;
@@ -19,6 +19,6 @@ public class QueueListener {
     @RabbitHandler(isDefault = true)
     @RabbitListener(queues = "test", concurrency = "2-5")
     public void deviceChargeMonitor(Message message) {
-        log.info("message {} ", message.getBody());
+        log.info("message {} ", new String(message.getBody()));
     }
 }
