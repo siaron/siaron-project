@@ -12,6 +12,7 @@
     <modules>
         <module>other-example-executable</module>
         <module>other-example-executable-jar</module>
+        <module>hazelcast-demo</module>
     </modules>
     <artifactId>other-example</artifactId>
 

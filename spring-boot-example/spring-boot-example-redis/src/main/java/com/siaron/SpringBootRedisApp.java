@@ -60,6 +60,8 @@ public class SpringBootRedisApp {
         return redisTemplate;
     }
 
+
+    
     @Bean
     public RedissonClient redisson() {
         Config config = new Config();
