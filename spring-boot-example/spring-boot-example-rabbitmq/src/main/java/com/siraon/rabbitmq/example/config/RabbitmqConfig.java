@@ -1,9 +1,6 @@
 package com.siraon.rabbitmq.example.config;
 
-import org.springframework.amqp.core.Binding;
-import org.springframework.amqp.core.BindingBuilder;
-import org.springframework.amqp.core.DirectExchange;
-import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -62,6 +59,78 @@ public class RabbitmqConfig {
     }
 
 
-    //TTL 队列
+    //TTL + DLX 实现延迟队列
 
+
+    @Bean
+    public DirectExchange ttlExchange() {
+        return new DirectExchange("ttl.exchange", true, false);
+    }
+
+    @Bean
+    public Queue ttlQueue() {
+        //该队列中的所有消息的过期时间为5秒,然后发到死信队列中
+        Map<String, Object> args = new HashMap<String, Object>();
+        //指定此队列的生命周期为5秒
+        //args.put("x-expires", 5000);
+        //指定此队列的所有消息生命周期为6秒
+        args.put("x-message-ttl", 6000);
+        args.put("x-dead-letter-exchange", "ttl.to.dlx.exchange");
+        args.put("x-dead-letter-routing-key", "ttl2dlxKey");
+        return new Queue("ttlQueue", true, false, false, args);
+    }
+
+    @Bean
+    public Binding ttlBinding(DirectExchange ttlExchange, Queue ttlQueue) {
+        return BindingBuilder.bind(ttlQueue).to(ttlExchange).with(ttlQueue.getName());
+    }
+
+    /**
+     * 发送到该队列的message会在一段时间后过期进入到delay_process_queue
+     * 每个message可以控制自己的失效时间
+     */
+    final static String DELAY_QUEUE_PER_MESSAGE_TTL_NAME = "delay_queue_per_message_ttl";
+
+    /**
+     * 创建delay_queue_per_message_ttl队列
+     *
+     * @return
+     */
+    @Bean
+    Queue delayQueuePerMessageTTL() {
+        return QueueBuilder.durable(DELAY_QUEUE_PER_MESSAGE_TTL_NAME)
+                // DLX，dead letter发送到的exchange
+                .withArgument("x-dead-letter-exchange", "ttl.to.dlx.exchange")
+                // dead letter携带的routing key
+                .withArgument("x-dead-letter-routing-key", "ttl2dlxKey")
+                .build();
+    }
+
+    /**
+     * 将per_queue_ttl_exchange绑定到delay_queue_per_queue_ttl队列
+     *
+     */
+    @Bean
+    Binding queueTTLBinding(Queue delayQueuePerMessageTTL, DirectExchange ttlExchange) {
+        return BindingBuilder.bind(delayQueuePerMessageTTL)
+                .to(ttlExchange)
+                .with(delayQueuePerMessageTTL.getName());
+    }
+
+    //ttl 死信队列
+
+    @Bean
+    public DirectExchange ttlDeadLetterExchange() {
+        return new DirectExchange("ttl.to.dlx.exchange", true, false);
+    }
+
+    @Bean
+    public Queue ttlDeadLetterQueue() {
+        return new Queue("ttl2dlxQueue");
+    }
+
+    @Bean
+    public Binding ttlDeadLetterBinding(DirectExchange ttlDeadLetterExchange, Queue ttlDeadLetterQueue) {
+        return BindingBuilder.bind(ttlDeadLetterQueue).to(ttlDeadLetterExchange).with("ttl2dlxKey");
+    }
 }

@@ -22,7 +22,7 @@ public class DlxQueueListener {
     @RabbitListener(queues = "#{customQueue}", concurrency = "1-5", returnExceptions = "false")
     public void deviceChargeMonitor(String message) throws AmqpRejectAndDontRequeueException {
         try {
-            int a = 1 / 0;
+            //int a = 1 / 0;
         } catch (Exception e) {
             throw new AmqpRejectAndDontRequeueException("test");
         }
