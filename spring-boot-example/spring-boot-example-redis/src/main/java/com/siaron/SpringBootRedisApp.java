@@ -20,7 +20,9 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
+import redis.embedded.RedisServer;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 
 /**
@@ -37,6 +39,14 @@ public class SpringBootRedisApp {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringBootRedisApp.class, args);
+    }
+
+
+    public void eRedis() throws IOException {
+        RedisServer redisServer = new RedisServer(6399);
+        redisServer.start();
+        // do some work
+        redisServer.stop();
     }
 
     @Bean
@@ -61,7 +71,6 @@ public class SpringBootRedisApp {
     }
 
 
-    
     @Bean
     public RedissonClient redisson() {
         Config config = new Config();

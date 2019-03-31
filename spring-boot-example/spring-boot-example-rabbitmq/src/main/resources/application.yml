@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: spring-boot-example-rabbitmq
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5674
+    username: admin
+    password: admin
+    virtual-host: /
