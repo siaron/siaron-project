@@ -1,0 +1,32 @@
+[
+  {
+    "name": "timeSampleRPM",
+    "interval": 30,
+    "maxRegister": 18,
+    "minRegister": 18
+  },
+  {
+    "name": "timeSampleSpeed",
+    "interval": 30,
+    "maxRegister": 19,
+    "minRegister": 19
+  },
+  {
+    "name": "timeSampleCurON",
+    "interval": 30,
+    "maxRegister": 22,
+    "minRegister": 22
+  },
+  {
+    "name": "timeSampleLED",
+    "interval": 30,
+    "maxRegister": 20,
+    "minRegister": 20
+  },
+  {
+    "name": "timeSampleNormal",
+    "interval": 30,
+    "maxRegister": 0,
+    "minRegister": 0
+  }
+]

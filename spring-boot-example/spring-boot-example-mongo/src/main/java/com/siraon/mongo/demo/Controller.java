@@ -1,4 +1,4 @@
-package com.siraon.mongo;
+package com.siraon.mongo.demo;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.gridfs.GridFSDBFile;

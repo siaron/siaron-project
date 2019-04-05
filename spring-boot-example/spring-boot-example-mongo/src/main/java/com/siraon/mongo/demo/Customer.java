@@ -1,4 +1,4 @@
-package com.siraon.mongo;
+package com.siraon.mongo.demo;
 
 import org.springframework.data.annotation.Id;
 

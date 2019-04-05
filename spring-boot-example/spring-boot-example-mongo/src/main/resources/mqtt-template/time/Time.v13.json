@@ -1,0 +1,74 @@
+[
+  {
+    "name": "timeBasicInf",
+    "interval": 7200,
+    "maxRegister": 47,
+    "minRegister": 1
+  },
+  {
+    "name": "timeUpdate",
+    "interval": 180,
+    "maxRegister": -1,
+    "minRegister": -1
+  },
+  {
+    "name": "timeSampleECUSlow",
+    "interval": 180,
+    "maxRegister": 64,
+    "minRegister": 48
+  },
+  {
+    "name": "timeSampleECUFast",
+    "interval": 180,
+    "maxRegister": 85,
+    "minRegister": 65
+  },
+  {
+    "name": "timeSampleGPS",
+    "interval": 180,
+    "maxRegister": 150,
+    "minRegister": 86
+  },
+  {
+    "name": "timeSamplePowerBAT",
+    "interval": 30,
+    "maxRegister": 163,
+    "minRegister": 151
+  },
+  {
+    "name": "timeSampleCharge",
+    "interval": 30,
+    "maxRegister": 170,
+    "minRegister": 164
+  },
+  {
+    "name": "timeSleepTime",
+    "interval": 720,
+    "maxRegister": -1,
+    "minRegister": -1
+  },
+  {
+    "name": "timeGPSWaitTime",
+    "interval": 600,
+    "maxRegister": -1,
+    "minRegister": -1
+  },
+  {
+    "name": "timeSampleMotorParas",
+    "interval": 30,
+    "maxRegister": 236,
+    "minRegister": 171
+  },
+  {
+    "name": "timeSampleSetParas",
+    "interval": 30,
+    "maxRegister": 289,
+    "minRegister": 273
+  },
+  {
+    "name": "timeSampleDeviceRunStatus",
+    "interval": 30,
+    "maxRegister": 339,
+    "minRegister": 290
+  }
+]

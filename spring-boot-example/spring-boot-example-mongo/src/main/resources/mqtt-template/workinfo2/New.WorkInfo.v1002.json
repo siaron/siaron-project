@@ -1,0 +1,464 @@
+[
+  {
+    "name": "gpsYearMonthDay",
+    "type": "short",
+    "length": 2,
+    "register": 1,
+    "converter": "com.nvr.gather.server.mqtt.converter.FactoryDateConverter"
+  },
+  {
+    "name": "pcuYearMonthDay",
+    "type": "short",
+    "length": 2,
+    "register": 2,
+    "converter": "com.nvr.gather.server.mqtt.converter.FactoryDateConverter"
+  },
+  {
+    "name": "gpsProductNO",
+    "type": "int",
+    "length": 4,
+    "register": 3,
+    "converter": "com.nvr.gather.server.mqtt.converter.ProductNOConverter"
+  },
+  {
+    "name": "dashboardProductNO",
+    "type": "int",
+    "length": 4,
+    "register": 5,
+    "converter": "com.nvr.gather.server.mqtt.converter.ProductNOConverter"
+  },
+  {
+    "name": "gpsHardVersion",
+    "type": "short",
+    "length": 2,
+    "register": 7,
+    "converter": "com.nvr.gather.server.mqtt.converter.GPSVersionConverter"
+  },
+  {
+    "name": "gpsSoftVersion",
+    "type": "short",
+    "length": 2,
+    "register": 8,
+    "converter": "com.nvr.gather.server.mqtt.converter.GPSVersionConverter"
+  },
+  {
+    "name": "dashboardHardVersion",
+    "type": "char",
+    "length": 2,
+    "register": 9,
+    "converter": "com.nvr.gather.server.mqtt.converter.CharTypeConverter"
+  },
+  {
+    "name": "dashboardSoftVersion",
+    "type": "char",
+    "length": 2,
+    "register": 10,
+    "converter": "com.nvr.gather.server.mqtt.converter.CharTypeConverter"
+  },
+  {
+    "name": "bindMachineId",
+    "type": "int",
+    "length": 4,
+    "register": 11,
+    "converter": "com.nvr.gather.server.mqtt.converter.BytesToHexStringConverter"
+  },
+  {
+    "name": "reserved1",
+    "type": "short",
+    "length": 2,
+    "register": 13,
+    "converter": "com.nvr.gather.server.mqtt.converter.BytesToStringConverter"
+  },
+  {
+    "name": "reserved2",
+    "type": "short",
+    "length": 2,
+    "register": 14,
+    "converter": "com.nvr.gather.server.mqtt.converter.BytesToStringConverter"
+  },
+  {
+    "name": "reserved3",
+    "type": "short",
+    "length": 2,
+    "register": 15,
+    "converter": "com.nvr.gather.server.mqtt.converter.BytesToStringConverter"
+  },
+  {
+    "name": "reserved4",
+    "type": "short",
+    "length": 2,
+    "register": 16,
+    "converter": "com.nvr.gather.server.mqtt.converter.BytesToStringConverter"
+  },
+  {
+    "name": "reserved5",
+    "type": "short",
+    "length": 2,
+    "register": 17,
+    "converter": "com.nvr.gather.server.mqtt.converter.BytesToStringConverter"
+  },
+  {
+    "name": "engineRotate",
+    "type": "short",
+    "length": 2,
+    "register": 18,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "gpsSpeed",
+    "type": "short",
+    "length": 2,
+    "register": 19,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "ledStatus",
+    "type": "int",
+    "length": 4,
+    "register": 20,
+    "converter": "com.nvr.gather.server.mqtt.converter.LedStatusConverter"
+  },
+  {
+    "name": "fuelConsumption",
+    "type": "short",
+    "length": 2,
+    "register": 22,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "pressureMeter",
+    "type": "short",
+    "length": 2,
+    "register": 23,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "pressureMeter2",
+    "type": "short",
+    "length": 2,
+    "register": 24,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "engineTemperature",
+    "type": "short",
+    "length": 2,
+    "register": 25,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "oilTemperature",
+    "type": "short",
+    "length": 2,
+    "register": 26,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "momentWorkTime",
+    "type": "short",
+    "length": 2,
+    "register": 27,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "totalDuration",
+    "type": "int",
+    "length": 4,
+    "register": 28,
+    "converter": "com.nvr.gather.server.mqtt.converter.Long4ByteTypeConverter"
+  },
+  {
+    "name": "realTimeDuration",
+    "type": "short",
+    "length": 2,
+    "register": 30,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "startTimes",
+    "type": "int",
+    "length": 4,
+    "register": 31,
+    "converter": "com.nvr.gather.server.mqtt.converter.Long4ByteTypeConverter"
+  },
+  {
+    "name": "batteryVol",
+    "type": "short",
+    "length": 2,
+    "register": 33,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "oilLevel",
+    "type": "short",
+    "length": 2,
+    "register": 34,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "oilPress",
+    "type": "short",
+    "length": 2,
+    "register": 35,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "totalMileage",
+    "type": "int",
+    "length": 4,
+    "register": 36,
+    "converter": "com.nvr.gather.server.mqtt.converter.Long4ByteTypeConverter"
+  },
+  {
+    "name": "momentMileage",
+    "type": "short",
+    "length": 2,
+    "register": 38,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "reserved6",
+    "type": "short",
+    "length": 2,
+    "register": 39,
+    "converter": "com.nvr.gather.server.mqtt.converter.BytesToStringConverter"
+  },
+  {
+    "name": "reserved7",
+    "type": "short",
+    "length": 2,
+    "register": 40,
+    "converter": "com.nvr.gather.server.mqtt.converter.BytesToStringConverter"
+  },
+  {
+    "name": "reserved8",
+    "type": "short",
+    "length": 2,
+    "register": 41,
+    "converter": "com.nvr.gather.server.mqtt.converter.BytesToStringConverter"
+  },
+  {
+    "name": "reserved9",
+    "type": "short",
+    "length": 2,
+    "register": 42,
+    "converter": "com.nvr.gather.server.mqtt.converter.BytesToStringConverter"
+  },
+  {
+    "name": "reserved10",
+    "type": "short",
+    "length": 2,
+    "register": 43,
+    "converter": "com.nvr.gather.server.mqtt.converter.BytesToStringConverter"
+  },
+  {
+    "name": "reserved11",
+    "type": "short",
+    "length": 2,
+    "register": 44,
+    "converter": "com.nvr.gather.server.mqtt.converter.BytesToStringConverter"
+  },
+  {
+    "name": "visibleSatelliteNumber",
+    "type": "short",
+    "length": 2,
+    "register": 45,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "usableSatelliteNumber",
+    "type": "short",
+    "length": 2,
+    "register": 46,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "builtInVoltage",
+    "type": "short",
+    "length": 2,
+    "register": 47,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "gsmSignal",
+    "type": "short",
+    "length": 2,
+    "register": 48,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "gpsStatus",
+    "type": "short",
+    "length": 2,
+    "register": 49,
+    "converter": "com.nvr.gather.server.mqtt.converter.GPSStatusConverter"
+  },
+  {
+    "name": "locateDuration",
+    "type": "short",
+    "length": 2,
+    "register": 50,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "inTimeLag",
+    "type": "short",
+    "length": 2,
+    "register": 51,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "exTimeLag",
+    "type": "short",
+    "length": 2,
+    "register": 52,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "ecuLockStatus",
+    "type": "short",
+    "length": 2,
+    "register": 53,
+    "converter": "com.nvr.gather.server.mqtt.converter.BytesToBinaryString16BitsConverter"
+  },
+  {
+    "name": "longitudeNum",
+    "type": "int",
+    "length": 4,
+    "register": 54,
+    "converter": "com.nvr.gather.server.mqtt.converter.FleetLongitudeConverter"
+  },
+  {
+    "name": "latitudeNum",
+    "type": "int",
+    "length": 4,
+    "register": 56,
+    "converter": "com.nvr.gather.server.mqtt.converter.FleetLatitudeConverter"
+  },
+  {
+    "name": "gpsVelocity",
+    "type": "short",
+    "length": 2,
+    "register": 58,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "locateDateTime",
+    "type": "char",
+    "length": 24,
+    "register": 59,
+    "converter": "com.nvr.gather.server.mqtt.converter.CharDateConverter"
+  },
+  {
+    "name": "gprssignalStrength",
+    "type": "short",
+    "length": 2,
+    "register": 71,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "gsmCellid",
+    "type": "int",
+    "length": 28,
+    "register": 72,
+    "converter": "com.nvr.gather.server.mqtt.converter.BytesToHexStringConverter"
+  },
+  {
+    "name": "gsmLac",
+    "type": "short",
+    "length": 14,
+    "register": 86,
+    "converter": "com.nvr.gather.server.mqtt.converter.BytesToHexStringConverter"
+  },
+  {
+    "name": "gsmRxl",
+    "type": "short",
+    "length": 14,
+    "register": 93,
+    "converter": "com.nvr.gather.server.mqtt.converter.BytesToHexStringConverter"
+  },
+  {
+    "name": "mainGatewayIp",
+    "type": "char",
+    "length": 50,
+    "register": 100,
+    "converter": "com.nvr.gather.server.mqtt.converter.CharTypeConverter"
+  },
+  {
+    "name": "reserved12",
+    "type": "short",
+    "length": 2,
+    "register": 125,
+    "converter": "com.nvr.gather.server.mqtt.converter.BytesToStringConverter"
+  },
+  {
+    "name": "reserved13",
+    "type": "short",
+    "length": 2,
+    "register": 126,
+    "converter": "com.nvr.gather.server.mqtt.converter.BytesToStringConverter"
+  },
+  {
+    "name": "reserved14",
+    "type": "short",
+    "length": 2,
+    "register": 127,
+    "converter": "com.nvr.gather.server.mqtt.converter.BytesToStringConverter"
+  },
+  {
+    "name": "reserved15",
+    "type": "short",
+    "length": 2,
+    "register": 128,
+    "converter": "com.nvr.gather.server.mqtt.converter.BytesToStringConverter"
+  },
+  {
+    "name": "timeBasicInf",
+    "type": "short",
+    "length": 2,
+    "register": 129,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "timeWorkingCondition",
+    "type": "short",
+    "length": 2,
+    "register": 130,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "timeSampleNormal",
+    "type": "short",
+    "length": 2,
+    "register": 131,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "timeSampleRPM",
+    "type": "short",
+    "length": 2,
+    "register": 132,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "timeSampleSpeed",
+    "type": "short",
+    "length": 2,
+    "register": 133,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "timeSampleCurON",
+    "type": "short",
+    "length": 2,
+    "register": 134,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  },
+  {
+    "name": "timeSampleLED",
+    "type": "short",
+    "length": 2,
+    "register": 135,
+    "converter": "com.nvr.gather.server.mqtt.converter.HexToDecUnitConverter"
+  }
+]

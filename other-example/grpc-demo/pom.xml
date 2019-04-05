@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>grps-demo</artifactId>
+    <artifactId>grpc-demo</artifactId>
     <packaging>pom</packaging>
 
     <modules>

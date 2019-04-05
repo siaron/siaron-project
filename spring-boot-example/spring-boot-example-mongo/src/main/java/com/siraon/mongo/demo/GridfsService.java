@@ -1,4 +1,4 @@
-package com.siraon.mongo;
+package com.siraon.mongo.demo;
 
 import com.mongodb.gridfs.GridFSDBFile;
 import com.mongodb.gridfs.GridFSInputFile;
