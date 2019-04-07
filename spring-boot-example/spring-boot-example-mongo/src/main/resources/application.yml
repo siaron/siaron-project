@@ -7,17 +7,21 @@ spring:
     name: spring-boot-example-mongo
   data:
     mongodb:
-#      uri: mongodb://shon:shonlovescoding@127.0.0.1:27017/newDB #集群时 mongodb://user:pwd@ip1:port1,ip2:port2/database 设置
+      #      uri: mongodb://shon:shonlovescoding@127.0.0.1:27017/newDB #集群时 mongodb://user:pwd@ip1:port1,ip2:port2/database 设置
       host: 127.0.0.1
       port: 27017
       database: newDB
       username: shon
       password: shonlovescoding
-      field-naming-strategy: org.springframework.data.mapping.model.CamelCaseAbbreviatingFieldNamingStrategy #简化字段名称 firstName -> fn
-#      field-naming-strategy: org.springframework.data.mapping.model.SnakeCaseFieldNamingStrategy #驼峰转换
+      #      field-naming-strategy: org.springframework.data.mapping.model.CamelCaseAbbreviatingFieldNamingStrategy #简化字段名称 firstName -> fn
+      #      field-naming-strategy: org.springframework.data.mapping.model.SnakeCaseFieldNamingStrategy #驼峰转换
       repositories:
-         type: auto
+        type: auto
   servlet:
     multipart:
       max-request-size: 100MB
       max-file-size: 100MB
+
+dayuan:
+  upload:
+    online-resource-path: https://www.baidu.com
