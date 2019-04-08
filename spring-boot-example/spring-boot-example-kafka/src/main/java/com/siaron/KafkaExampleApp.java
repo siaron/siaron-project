@@ -1,6 +1,8 @@
 package com.siaron;
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * @author xielongwang
@@ -8,6 +10,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @email xielong.wang@nvr-china.com
  * @description
  */
+@EnableScheduling
 @SpringBootApplication
 public class KafkaExampleApp {
+
+    public static void main(String[] args) {
+        SpringApplication.run(KafkaExampleApp.class, args);
+    }
 }

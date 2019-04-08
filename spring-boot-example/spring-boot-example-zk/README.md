@@ -2,6 +2,7 @@
 - 默认端口 `2181`
     
 ## 安装
+- mac 启动: zkServer start / zkServer stop
 
 ## 配置
 - dataDir 元数据数据目录
