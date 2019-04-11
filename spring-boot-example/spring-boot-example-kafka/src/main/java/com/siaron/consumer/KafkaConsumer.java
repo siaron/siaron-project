@@ -17,11 +17,12 @@ public class KafkaConsumer {
 
     private Logger LOG = LoggerFactory.getLogger(KafkaConsumer.class);
 
-    //concurrency 不是容器中的线程数. 实实在在group中的consumer 数量.
-    //关于consumer的主要的封装在ConcurrentKafkaListenerContainerFactory这个里头，本身的KafkaConsumer是线程不安全的，无法并发操作，这里spring又在包装了一层，根据配置的spring.kafka.listener.concurrency来生成多个并发的KafkaMessageListenerContainer实例
-    @KafkaListener(topics = "topic1", groupId = "#{topicGroupId}",concurrency = "10")//10个consumer ,为group中的consumer ,如果设置了partition 则会均分partition
-    public void processMessage(ConsumerRecord<Integer, String> record)  {
-        LOG.info("processMessage, topic = {}", record);
+    //关于consumer的主要的封装在ConcurrentKafkaListenerContainerFactory这个里头，本身的 KafkaConsumer 是线程不安全的，
+    //无法并发操作，这里spring又在包装了一层，根据配置的spring.kafka.listener.concurrency来生成多个并发的 KafkaMessageListenerContainer 实例.
+    //ContainerProperties.setConsumerTaskExecutor  每个 KafkaConsumer 对应一个 SimpleAsyncTaskExecutor .
+    @KafkaListener(topics = "topic1", groupId = "#{topicGroupId}", concurrency = "15")
+    public void processMessage(ConsumerRecord<Integer, String> record) {
+        LOG.info("processMessage, topic = {} current Thread {}", record, Thread.currentThread().getName());
     }
 
 }

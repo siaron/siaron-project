@@ -19,8 +19,8 @@ import java.util.Random;
 @Component
 public class DlxQueueListener {
 
-    @RabbitListener(queues = "#{customQueue}", concurrency = "1-5", returnExceptions = "false")
-    public void deviceChargeMonitor(String message) throws AmqpRejectAndDontRequeueException {
+    @RabbitListener(queues = "#{customQueue}", concurrency = "1", returnExceptions = "false")
+    public void deviceChargeMonitor(String message)  {
         try {
             //int a = 1 / 0;
         } catch (Exception e) {

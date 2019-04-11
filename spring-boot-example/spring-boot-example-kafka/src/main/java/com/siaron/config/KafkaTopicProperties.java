@@ -16,5 +16,6 @@ import java.io.Serializable;
 public class KafkaTopicProperties implements Serializable {
 
     private String groupId;
+
     private String  topicName;
 }

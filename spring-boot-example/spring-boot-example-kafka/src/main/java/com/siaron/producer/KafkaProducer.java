@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.util.concurrent.ListenableFuture;
@@ -20,6 +21,7 @@ import java.util.stream.LongStream;
  * @email xielong.wang@nvr-china.com
  * @description
  */
+@EnableScheduling
 @Component
 public class KafkaProducer {
 
@@ -45,17 +47,15 @@ public class KafkaProducer {
 
 
     public void sendMessage(String topic, String data) {
-        LongStream.rangeClosed(1, 10).forEach(index -> {
-            ListenableFuture<SendResult<Integer, String>> future = kafkaTemplate.send(topic, data+index);
-            future.addCallback(new ListenableFutureCallback<SendResult<Integer, String>>() {
-                @Override
-                public void onFailure(Throwable ex) {
-                }
+        ListenableFuture<SendResult<Integer, String>> future = kafkaTemplate.send(topic, data );
+        future.addCallback(new ListenableFutureCallback<SendResult<Integer, String>>() {
+            @Override
+            public void onFailure(Throwable ex) {
+            }
 
-                @Override
-                public void onSuccess(SendResult<Integer, String> result) {
-                }
-            });
+            @Override
+            public void onSuccess(SendResult<Integer, String> result) {
+            }
         });
     }
 

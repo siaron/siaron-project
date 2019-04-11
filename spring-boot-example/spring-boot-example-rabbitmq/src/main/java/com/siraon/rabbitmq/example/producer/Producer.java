@@ -29,21 +29,21 @@ public class Producer {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    @Scheduled(fixedDelay = 5000)
-    public void send() {
-        rabbitTemplate.convertAndSend("custom.exchange", "consumer", "test");
-    }
-
-
-    @Scheduled(fixedDelay = 5000)
-    public void sendTtl() {
-        //指定消息的生存时间
-        MessageProperties messageProperties = new MessageProperties();
-        messageProperties.setExpiration("5000");
-        Message message = new Message("test".getBytes(), messageProperties);
-        rabbitTemplate.send("ttl.exchange", "delay_queue_per_message_ttl", message);
-
-        //指定队列中全部的消息TTL
-        rabbitTemplate.convertAndSend("ttl.exchange", "ttlQueue", "test");
-    }
+//    @Scheduled(fixedDelay = 5000)
+//    public void send() {
+//        rabbitTemplate.convertAndSend("custom.exchange", "consumer", "test");
+//    }
+//
+//
+//    @Scheduled(fixedDelay = 5000)
+//    public void sendTtl() {
+//        //指定消息的生存时间
+//        MessageProperties messageProperties = new MessageProperties();
+//        messageProperties.setExpiration("5000");
+//        Message message = new Message("test".getBytes(), messageProperties);
+//        rabbitTemplate.send("ttl.exchange", "delay_queue_per_message_ttl", message);
+//
+//        //指定队列中全部的消息TTL
+//        rabbitTemplate.convertAndSend("ttl.exchange", "ttlQueue", "test");
+//    }
 }

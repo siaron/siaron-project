@@ -7,3 +7,6 @@ spring:
     username: admin
     password: admin
     virtual-host: /
+    cache:
+      connection:
+        mode: channel

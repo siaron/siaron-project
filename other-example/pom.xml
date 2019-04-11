@@ -17,6 +17,7 @@
         <module>javascript-demo</module>
         <module>grpc-demo</module>
         <module>socket-sticky-demo</module>
+        <module>hdfs-client-demo</module>
     </modules>
     <artifactId>other-example</artifactId>
 
