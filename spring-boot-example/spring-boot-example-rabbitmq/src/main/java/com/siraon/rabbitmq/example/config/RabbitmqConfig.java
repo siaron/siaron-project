@@ -163,6 +163,7 @@ public class RabbitmqConfig {
         CachingConnectionFactory factory = new CachingConnectionFactory(
                 getRabbitConnectionFactoryBean(properties).getObject());
 
+        //心跳新城
         factory.setConnectionThreadFactory(new ThreadFactory() {
             public final AtomicInteger id = new AtomicInteger();
 

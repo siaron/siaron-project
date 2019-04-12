@@ -14,7 +14,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * @email xielong.wang@nvr-china.com
  * @description
  */
-//@EnableScheduling
+@EnableScheduling
 @SpringBootApplication
 public class KafkaExampleApp {
 

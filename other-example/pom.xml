@@ -18,6 +18,7 @@
         <module>grpc-demo</module>
         <module>socket-sticky-demo</module>
         <module>hdfs-client-demo</module>
+        <module>hbase-demo</module>
     </modules>
     <artifactId>other-example</artifactId>
 
