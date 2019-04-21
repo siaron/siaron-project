@@ -1,4 +1,4 @@
-package com.siaron.hbase;
+package com.siaron.hbase.example01;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.*;
