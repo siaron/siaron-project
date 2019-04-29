@@ -2,8 +2,8 @@ spring:
   application:
     name: spring-boot-example-drools
   disruptor:
-    enabled: false
-    ring-buffer: false
+    enabled: true
+    ring-buffer: true
     ring-buffer-size: 1024
     ring-thread-numbers: 4
     multi-producer: true
@@ -14,7 +14,13 @@ spring:
     password: siaron_project_admin_pass
     hikari:
       schema: drools
+  groovy:
+    template:
+      check-template-location: false
 
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
+
+server:
+  port: 0

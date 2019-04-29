@@ -2,6 +2,7 @@ package com.siaron.drools.producer;
 
 import com.lmax.disruptor.spring.boot.DisruptorTemplate;
 import com.lmax.disruptor.spring.boot.event.DisruptorBindEvent;
+import com.siaron.drools.model.data.SensorDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -25,13 +26,22 @@ public class Producer {
     @Autowired(required = false)
     protected DisruptorTemplate disruptorTemplate;
 
-    @Scheduled(fixedDelay = 1000)
-    public void send()  {
-        LongStream.range(1, 20).forEach(s -> {
-            DisruptorBindEvent event = new DisruptorBindEvent("message 111" + Math.random(), "message 2222" + Math.random());
+    //@Scheduled(fixedDelay = 5000)
+    public void send() {
+        LongStream.range(1, 5).forEach(s -> {
+            DisruptorBindEvent event = new DisruptorBindEvent("source");
             event.setEvent("Event-Output");
             event.setTag("TagA-Output");
             event.setKey("id-" + s + Math.random());
+            event.setBody("body");
+            event.bind(SensorDTO
+                    .builder()
+                    .build()
+                    .setDeviceNum("C20111")
+                    .setAccStatus("1")
+                    .setEngineTemp(98L));
+
+
             disruptorTemplate.publishEvent(event);
         });
     }

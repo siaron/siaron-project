@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <kmodule xmlns="http://www.drools.org/xsd/kmodule">
+    <!--这个文件的主要作用之一，是在运行时，让drools知道加载哪些drl文件。注意：这里packages="hello"，就表示加载classpath:resources/hello下的drl文件。-->
     <kbase name="rules" packages="com.rules" default="true">
-        <ksession name="ksession-rule"/>
+        <ksession name="demo_rule"/><!--代表一个KieSession, 包括 com.rules 下面的所有规则, 相同的packages下,不能定义相同的全局变量,函数-->
+        <ksession name="demo_rule2"/>
     </kbase>
 
-    <kbase name="rules2" packages="com.rules.two" default="false">
-        <ksession name="ksession-rule2"/>
+    <!--建议一个kbase配置一个drl文件-->
+    <kbase name="rules2" packages="com.rules">
+        <ksession name="demo_rule2_2"/>
     </kbase>
+
+    <!--
+    一个kmodule里面包含了两个kbase，这个也是我们这个例子里面的两个用例，分别对应drl规则文件的例子，一个是对应Excel表格的规则例子。
+        1. 每一个kbase都有一个name，可以取任意字符串，但是不能重名
+        2. 然后都有一个packages，可以看到packages里面的字符串其实就是src/main/resources下面的文件夹的名称，或者叫包名，规则引擎会根据这里定义的包来查找规则定义文件。可以同时定义多个包，以逗号分隔开来就行。
+        3. 每一个kbase下面可以包含多个ksession，当然本例中都自定义了一个。
+        4. 每一个ksession都有一个name，名字也可以是任意字符串，但是也不能重复。
+        5. kbase和ksession里面的name属性是全局不能重复的。
+    -->
+    <kbase name="rules_t" packages="com.rules2.drl">
+        <ksession name="ksession-rules"/>
+    </kbase>
+
+    <kbase name="dtables" packages="com.rules2.excel">
+        <ksession name="ksession-dtables"/>
+    </kbase>
+
 </kmodule>

@@ -31,6 +31,7 @@ public class DisruptorProperties {
      * 是否对生产者，如果是则通过 RingBuffer.createMultiProducer创建一个多生产者的RingBuffer，否则通过RingBuffer.createSingleProducer创建一个单生产者的RingBuffer
      */
     private boolean multiProducer = false;
+
     private int consumerNumber = 10;
 
     /**

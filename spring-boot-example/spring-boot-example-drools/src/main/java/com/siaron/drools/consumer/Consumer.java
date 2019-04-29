@@ -4,6 +4,8 @@ import com.lmax.disruptor.spring.boot.annotation.EventRule;
 import com.lmax.disruptor.spring.boot.event.DisruptorBindEvent;
 import com.lmax.disruptor.spring.boot.event.handler.DisruptorHandler;
 import com.lmax.disruptor.spring.boot.event.handler.chain.HandlerChain;
+import com.siaron.drools.model.data.SensorDTO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,12 +14,21 @@ import org.springframework.stereotype.Component;
  * @email xielong.wang@nvr-china.com
  * @description
  */
+@Slf4j
+@Component
 @EventRule("/Event-Output/TagA-Output/**")
-@Component("consumer")
 public class Consumer implements DisruptorHandler<DisruptorBindEvent> {
 
     @Override
-    public void doHandler(DisruptorBindEvent event, HandlerChain<DisruptorBindEvent> handlerChain) throws Exception {
-        System.out.println(event);
+    public void doHandler(DisruptorBindEvent event, HandlerChain<DisruptorBindEvent> handlerChain) {
+        if (event.getBind() != null && event.getBind() instanceof DisruptorBindEvent) {
+            DisruptorBindEvent disruptorBindEvent = (DisruptorBindEvent) event.getBind();
+            if (disruptorBindEvent.getBind() != null && disruptorBindEvent.getBind() instanceof SensorDTO) {
+                SensorDTO sensor = (SensorDTO) disruptorBindEvent.getBind();
+
+
+                log.info("receiver sensor data :{}", sensor);
+            }
+        }
     }
 }

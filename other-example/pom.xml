@@ -21,6 +21,8 @@
         <module>hdfs2-client-demo</module>
         <module>hbase-demo</module>
         <module>Ignite-demo</module>
+        <module>es-demo</module>
+        <module>vertx-eventbus-demo</module>
     </modules>
     <artifactId>other-example</artifactId>
 

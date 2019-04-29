@@ -22,32 +22,13 @@ import com.lmax.disruptor.spring.boot.event.DisruptorEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class DisruptorTemplate {
-	
-	@Autowired	
-	protected Disruptor<DisruptorEvent> disruptor;
-	@Autowired	
-	protected EventTranslatorOneArg<DisruptorEvent, DisruptorEvent> oneArgEventTranslator;
-	
-	public void publishEvent(DisruptorBindEvent event) {
-		disruptor.publishEvent(oneArgEventTranslator, event);
-	}
-	
-	public void publishEvent(String event, String tag, Object body) {
-		DisruptorBindEvent bindEvent = new DisruptorBindEvent();
-		bindEvent.setEvent(event);
-		bindEvent.setTag(tag);
-		bindEvent.setBody(body);
-		disruptor.publishEvent(oneArgEventTranslator, bindEvent);
-	}
-	
-	public void publishEvent(String event, String tag, String key, Object body) {
-		DisruptorBindEvent bindEvent = new DisruptorBindEvent();
-		bindEvent.setEvent(event);
-		bindEvent.setTag(tag);
-		bindEvent.setKey(key);
-		bindEvent.setBody(body);
-		disruptor.publishEvent(oneArgEventTranslator, bindEvent);
-	}
-	
-	
+
+    @Autowired
+    protected Disruptor<DisruptorEvent> disruptor;
+    @Autowired
+    protected EventTranslatorOneArg<DisruptorEvent, DisruptorEvent> oneArgEventTranslator;
+
+    public void publishEvent(DisruptorBindEvent event) {
+        disruptor.publishEvent(oneArgEventTranslator, event);
+    }
 }

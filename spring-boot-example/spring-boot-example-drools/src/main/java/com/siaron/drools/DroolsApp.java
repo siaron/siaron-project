@@ -1,7 +1,9 @@
 package com.siaron.drools;
 
+import com.siaron.drools.config.DroolsProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 /**
  * @author xielongwang
@@ -10,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @description
  */
 @SpringBootApplication(scanBasePackages = "com.lmax.disruptor.spring.boot", scanBasePackageClasses = DroolsApp.class)
+@EnableConfigurationProperties(DroolsProperties.class)
 public class DroolsApp {
 
     public static void main(String[] args) {
