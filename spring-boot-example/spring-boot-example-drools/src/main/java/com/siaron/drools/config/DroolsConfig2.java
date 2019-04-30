@@ -15,9 +15,8 @@ import java.io.IOException;
  * @create 2019-04-2918:29
  * @email xielong.wang@nvr-china.com
  * @description 方式二, 通过kmodule.xml记载
- *
- * 一个module下面可以配多个kbase，一个kbase可以配多个drl文件（如下边的配置方式），一个drl文件里可以配多个规则
- *
+ * <p>
+ * 一个module下面可以配多个kbase，一个kbase可以配多个drl文件（如下边的配置方式），一个drl文件里可以配多个规则,使用 kmodule.xml
  */
 @Configuration
 public class DroolsConfig2 {

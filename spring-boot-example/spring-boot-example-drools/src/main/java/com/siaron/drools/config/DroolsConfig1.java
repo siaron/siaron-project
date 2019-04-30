@@ -23,25 +23,25 @@ import java.io.IOException;
  * @author xielongwang
  * @create 2019-03-235:58 PM
  * @email xielong.wang@nvr-china.com
- * @description Kie KIE（Knowledge Is Everything），知识就是一切的简称, 方式一
+ * @description Kie KIE（Knowledge Is Everything），知识就是一切的简称, 方式一,不通过kmodule.xml
  */
 @Configuration
 public class DroolsConfig1 {
 
     private static final String RULES_PATH = "com/rules/";
 
-
     @Bean
     @ConditionalOnMissingBean(KieFileSystem.class)
-    public KieFileSystem kieFileSystem() throws IOException {
-        KieFileSystem kieFileSystem = getKieServices().newKieFileSystem();
+    public KieFileSystem kieFileSystem(KieServices kieServices) throws IOException {
+        KieFileSystem kieFileSystem = kieServices.newKieFileSystem();
         for (Resource file : getRuleFiles()) {
             kieFileSystem.write(ResourceFactory.newClassPathResource(RULES_PATH + file.getFilename(), "UTF-8"));
         }
         return kieFileSystem;
     }
 
-    private KieServices getKieServices() {
+    @Bean
+    public KieServices kieServices() {
         return KieServices.Factory.get();
     }
 
@@ -52,29 +52,20 @@ public class DroolsConfig1 {
 
     @Bean
     @ConditionalOnMissingBean(KieContainer.class)
-    public KieContainer kieContainer() throws IOException {
-        final KieRepository kieRepository = getKieServices().getRepository();
-        KieModuleModel kieModuleModel = getKieServices().newKieModuleModel();
-        // 2. 再创建 KieBaseModel, 类似于xml中的 kbase节点, name=kbase-rules, package=rules
-        KieBaseModel baseModel = kieModuleModel.newKieBaseModel("kbase-rules").addPackage("com.rules");
-        // 3. 再创建 KieSessionModel, 类似于xml中的 ksession 节点, name=ksession-rules
-        baseModel.newKieSessionModel("ksession-rules");
-        // 4. 生产一个xml文件，就是kmodule.xml文件
-        String xml = kieModuleModel.toXML();
-        System.out.println(xml);
-        
+    public KieContainer kieContainer(KieServices kieServices, KieFileSystem kieFileSystem) {
+        final KieRepository kieRepository = kieServices.getRepository();
         kieRepository.addKieModule(kieRepository::getDefaultReleaseId);
-        KieBuilder kieBuilder = getKieServices().newKieBuilder(kieFileSystem());
+        KieBuilder kieBuilder = kieServices.newKieBuilder(kieFileSystem);
         kieBuilder.buildAll();
-        KieContainer kieContainer = getKieServices().newKieContainer(kieRepository.getDefaultReleaseId());
+        KieContainer kieContainer = kieServices.newKieContainer(kieRepository.getDefaultReleaseId());
         KieUtils.setKieContainer(kieContainer);
-        return getKieServices().newKieContainer(kieRepository.getDefaultReleaseId());
+        return kieServices.newKieContainer(kieRepository.getDefaultReleaseId());
     }
 
     @Bean
     @ConditionalOnMissingBean(KieBase.class)
-    public KieBase kieBase() throws IOException {
-        return kieContainer().getKieBase();
+    public KieBase kieBase(KieContainer kieContainer) {
+        return kieContainer.getKieBase();
     }
 
     @Bean
@@ -85,8 +76,8 @@ public class DroolsConfig1 {
 
 
     @Bean
-    public KieSession kieSession() throws IOException {
-        KieSession kieSession = kieContainer().newKieSession();
+    public KieSession kieSession(KieContainer kieContainer) {
+        KieSession kieSession = kieContainer.newKieSession();
         KieUtils.setKieSession(kieSession);
         return kieSession;
     }

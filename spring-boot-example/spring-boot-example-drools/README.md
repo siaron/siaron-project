@@ -7,5 +7,9 @@
 - https://blog.csdn.net/han447227659/article/details/80911982
 - https://blog.csdn.net/qq_31179577/article/details/77008249
 - https://segmentfault.com/a/1190000016585971
-- https://www.cnblogs.com/chenzhao/archive/2013/01/11/2856146.html\
+- https://www.cnblogs.com/chenzhao/archive/2013/01/11/2856146.html
 - http://archive.keyllo.com/L-%E7%BC%96%E7%A8%8B/drools-%E4%BB%8EDrools%E8%A7%84%E5%88%99%E5%BC%95%E6%93%8E%E5%88%B0%E9%A3%8E%E6%8E%A7%E5%8F%8D%E6%B4%97%E9%92%B1%E7%B3%BB%E7%BB%9Fv0.3.2.pdf
+```
+agenda-group "B to C"
+auto-focus true
+```

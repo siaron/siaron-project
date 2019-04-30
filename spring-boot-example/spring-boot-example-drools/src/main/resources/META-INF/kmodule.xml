@@ -19,11 +19,11 @@
         4. 每一个ksession都有一个name，名字也可以是任意字符串，但是也不能重复。
         5. kbase和ksession里面的name属性是全局不能重复的。
     -->
-    <kbase name="rules_t" packages="com.rules2.drl">
+    <kbase name="rules_drl" packages="com.rules2.drl">
         <ksession name="ksession-rules"/>
     </kbase>
 
-    <kbase name="dtables" packages="com.rules2.excel">
+    <kbase name="rules_excel" packages="com.rules2.excel">
         <ksession name="ksession-dtables"/>
     </kbase>
 
