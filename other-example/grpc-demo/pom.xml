@@ -13,8 +13,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>grps-client</module>
-        <module>grps-server</module>
+        <module>grpc-client</module>
+        <module>grpc-server</module>
     </modules>
 
     <properties>
