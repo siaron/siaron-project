@@ -1,0 +1,11 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: spring-boot-example-hbase
+  data:
+    hbase:
+      quorum: master:2181
+      root-dir: hdfs://master:9000/hbase/hbase_db
+      node-parent: /hbase

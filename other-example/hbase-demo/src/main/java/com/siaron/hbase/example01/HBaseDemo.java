@@ -60,14 +60,63 @@ public class HBaseDemo {
         //准备数据
         prepareData();
 
+        //根据rowkey查询数据
+        rowKeyGet();
+
         //多个 filter And 查询
         filterMustPassAll();
 
         //多个 filter or 查询
         filterMustPassOne();
 
+
+        //delete 数据
+        deleteRow();
+
+        //truncateTable
+        truncateTable();
+
         //删除表
         deleteTable();
+    }
+
+    /**
+     *
+     */
+    private void truncateTable() throws IOException {
+        connection.getAdmin().truncateTable(TableName.valueOf(TABLE_NAME), false);
+    }
+
+    private void deleteRow() throws IOException {
+        Table ta = connection.getTable(TableName.valueOf(TABLE_NAME));
+
+        ta.delete(new Delete("row_1".getBytes()));
+
+    }
+
+    private void rowKeyGet() throws IOException {
+        Table table = connection.getTable(TableName.valueOf(TABLE_NAME));
+
+        Get get = new Get("row_1".getBytes());
+        Result re = table.get(get);
+        while (re.advance()) {
+            Cell cell = re.current();
+
+            byte[] row = CellUtil.cloneRow(cell);
+            byte[] family = CellUtil.cloneFamily(cell);
+            byte[] qualifier = CellUtil.cloneQualifier(cell);
+            byte[] value = CellUtil.cloneValue(cell);
+
+
+            System.out.println(String.format("%s,%s,%s,%s",
+                    new String(row),
+                    new String(family),
+                    new String(qualifier),
+                    new String(value)
+            ));
+
+
+        }
     }
 
     private void deleteTable() throws IOException {

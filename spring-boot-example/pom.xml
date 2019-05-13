@@ -25,6 +25,8 @@
         <module>spring-boot-example-daemon</module>
         <module>spring-boot-example-drools</module>
         <module>spring-boot-example-mongo</module>
+        <module>spring-boot-example-hbase</module>
+        <module>spring-boot-example-hbase2-starter</module>
     </modules>
 
     <modelVersion>4.0.0</modelVersion>
