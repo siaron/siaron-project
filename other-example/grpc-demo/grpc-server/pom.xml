@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>grps-server</artifactId>
+    <artifactId>grpc-server</artifactId>
 
     <properties>
         <main.class>com.siaron.grpc.server.GrpcDemoServer</main.class>
