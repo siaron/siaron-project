@@ -7,13 +7,13 @@
         <groupId>com.siaron-project</groupId>
         <version>1.0.0</version>
     </parent>
+
     <packaging>pom</packaging>
+
     <modules>
         <module>spring-boot-example-kafka</module>
         <module>spring-boot-example-executable</module>
-        <module>spring-boot-example-jpa</module>
         <module>spring-boot-example-redis</module>
-        <module>spring-boot-example-javafx</module>
         <module>spring-boot-example-rabbitmq</module>
         <module>spring-boot-example-disruptor</module>
         <module>spring-boot-example-disruptor-starter</module>

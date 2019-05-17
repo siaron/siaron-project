@@ -13,8 +13,6 @@
         <module>other-example</module>
         <module>spring-boot-example</module>
         <module>spring-cloud-example</module>
-        <module>spring-example</module>
-        <module>spring-cloud-alibaba-example</module>
     </modules>
 
     <properties>
