@@ -25,5 +25,9 @@ public interface ICRUDService {
 
     Person updatePerson(String rowKey);
 
-    Person delPerson(String rowKey);
+    void delPerson(String rowKey);
+
+    public void append(String rowKey);
+
+    public void increment(String rowKey);
 }

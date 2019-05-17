@@ -28,7 +28,7 @@ public class Person {
     @NoArgsConstructor
     @Builder
     @Accessors(chain = true)
-    private static class BaseInfo {
+    public static class BaseInfo {
 
         private String name;
 
@@ -41,7 +41,7 @@ public class Person {
     @NoArgsConstructor
     @Builder
     @Accessors(chain = true)
-    private static class OtherInfo {
+    public static class OtherInfo {
 
         private String address;
 

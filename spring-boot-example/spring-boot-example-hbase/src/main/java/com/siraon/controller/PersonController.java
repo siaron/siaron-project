@@ -54,9 +54,9 @@ public class PersonController {
     }
 
     @DeleteMapping("/person/{rowKey}/del")
-    public Person delPerson(
+    public void delPerson(
             @PathVariable("rowKey") String rowKey) {
-        return icrudService.delPerson(rowKey);
+        icrudService.delPerson(rowKey);
     }
 
 
@@ -64,5 +64,17 @@ public class PersonController {
     public Person updPerson(
             @PathVariable("rowKey") String rowKey) {
         return icrudService.updatePerson(rowKey);
+    }
+
+    @PutMapping("/person/{rowKey}/append")
+    public void appendPerson(
+            @PathVariable("rowKey") String rowKey) {
+        icrudService.append(rowKey);
+    }
+
+    @PutMapping("/person/{rowKey}/increment")
+    public void incrementPerson(
+            @PathVariable("rowKey") String rowKey) {
+        icrudService.increment(rowKey);
     }
 }

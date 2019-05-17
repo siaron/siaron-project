@@ -2,10 +2,13 @@ package com.siraon.service.impl;
 
 import com.siraon.bean.Person;
 import com.siraon.enums.LoadDataToDbEnum;
+import com.siraon.mapper.PersonRowMapper;
 import com.siraon.service.ICRUDService;
 import com.siraon.support.GlobalException;
 import com.sriaon.boot.HbaseTemplate;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.hadoop.hbase.Cell;
+import org.apache.hadoop.hbase.KeyValue;
 import org.apache.hadoop.hbase.NamespaceDescriptor;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.*;
@@ -29,19 +32,19 @@ import java.util.stream.LongStream;
 @Service
 public class CRUDServiceImpl implements ICRUDService {
 
-    private static final long ERROR_CODE = 500;
+    public static final long ERROR_CODE = 500;
 
-    private static final String NAMESPACE = "person_db";
-    private static final String TABLE_NAME = "person";
-    private static final String FULL_TABLE_NAME = NAMESPACE + ":" + TABLE_NAME;
+    public static final String NAMESPACE = "person_db";
+    public static final String TABLE_NAME = "person";
+    public static final String FULL_TABLE_NAME = NAMESPACE + ":" + TABLE_NAME;
 
-    private static final String INFO_COLUMN_FAMILY = "base";
-    private static final String OTHER_COLUMN_FAMILY = "other";
+    public static final String INFO_COLUMN_FAMILY = "base";
+    public static final String OTHER_COLUMN_FAMILY = "other";
 
-    private static final String NAME = "name";
-    private static final String AGE = "age";
+    public static final String NAME = "name";
+    public static final String AGE = "age";
 
-    private static final String ADDRESS = "address";
+    public static final String ADDRESS = "address";
 
     @Autowired
     HbaseTemplate hbaseTemplate;
@@ -128,27 +131,58 @@ public class CRUDServiceImpl implements ICRUDService {
 
     @Override
     public List<Person> queryPersonList(String startRowKey, String stopRowKey) {
-
-        return null;
+        return hbaseTemplate.find(FULL_TABLE_NAME,
+                new Scan()
+                        .withStartRow(startRowKey.getBytes())
+                        .withStopRow(stopRowKey.getBytes()),
+                new PersonRowMapper());
     }
 
     @Override
     public Person queryPerson(String rowKey) {
-
-        return null;
+        return hbaseTemplate.get(FULL_TABLE_NAME, rowKey, new PersonRowMapper());
     }
 
+    /**
+     * @param rowKey rowkey
+     * @return {@link Person}
+     */
     @Override
     public Person updatePerson(String rowKey) {
-
-        return null;
+        Put put = new Put(rowKey.getBytes());
+        put.addColumn(INFO_COLUMN_FAMILY.getBytes(),AGE.getBytes(), Bytes.toBytes(11));
+        hbaseTemplate.saveOrUpdate(FULL_TABLE_NAME, put);
+        return queryPerson(rowKey);
     }
 
     @Override
-    public Person delPerson(String rowKey) {
-
-        return null;
+    public void delPerson(String rowKey) {
+        Mutation delete = new Delete(rowKey.getBytes());
+        hbaseTemplate.saveOrUpdate(FULL_TABLE_NAME, delete);
     }
 
+
+    @Override
+    public void append(String rowKey) {
+        Append append = new Append(rowKey.getBytes());
+        append.addColumn(INFO_COLUMN_FAMILY.getBytes(), AGE.getBytes(), Bytes.toBytes(12));
+        hbaseTemplate.saveOrUpdate(FULL_TABLE_NAME, append);
+    }
+
+    @Override
+    public void increment(String rowKey) {
+        Increment increment = new Increment(rowKey.getBytes());
+        increment.addColumn(INFO_COLUMN_FAMILY.getBytes(), AGE.getBytes(), 13);
+        hbaseTemplate.saveOrUpdate(FULL_TABLE_NAME, increment);
+    }
+
+
+    /*
+    Mutation
+        Put 插入
+        Delete 删除
+        Append 单行上执行追加操作.
+        Increment 单行上执行增量操作
+     */
 
 }
