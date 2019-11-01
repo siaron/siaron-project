@@ -16,10 +16,11 @@
 - 查看多少个topic
    - kafka-topics --zookeeper 127.0.0.1:2181 --list
 - 查看topic下有多少的partition
-   - kafka-topics --zookeeper 127.0.0.1:2181 --describe --topic topic1
+   - kafka-topics --zookeeper 127.0.0.1:2181 --describe --topic generator
 - 查看多少个 consumer-group ,详情
+   - kafka-consumer-groups --bootstrap-server 127.0.0.1:9092 --group gGroupId --describe
    - kafka-consumer-groups --bootstrap-server 127.0.0.1:9092 --list
-   - kafka-consumer-groups --bootstrap-server 127.0.0.1:9092 --group topicGroupId --describe 
+   - kafka-consumer-groups --bootstrap-server 127.0.0.1:9092 --group gGroupId --describe 
 - 查看group 下多少个 consumer
    - 
    

@@ -7,8 +7,6 @@ import com.siraon.service.ICRUDService;
 import com.siraon.support.GlobalException;
 import com.sriaon.boot.HbaseTemplate;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.hadoop.hbase.Cell;
-import org.apache.hadoop.hbase.KeyValue;
 import org.apache.hadoop.hbase.NamespaceDescriptor;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.*;

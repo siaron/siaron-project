@@ -19,10 +19,10 @@
         <module>socket-sticky-demo</module>
         <module>hdfs3-client-demo</module>
         <module>hdfs2-client-demo</module>
-        <module>hbase-demo</module>
         <module>Ignite-demo</module>
         <module>es-demo</module>
         <module>vertx-eventbus-demo</module>
+        <module>java8-demo</module>
     </modules>
     <artifactId>other-example</artifactId>
 
